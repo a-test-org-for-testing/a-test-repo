@@ -2,6 +2,7 @@ steps:
   - label: ":construction_worker: Build"
     command: echo "Build the rocket"
     key: build
+    branches: main
 
   - label: ":white_check_mark: Test"
     command: echo "Test the rocket"
