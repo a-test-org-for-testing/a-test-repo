@@ -1,8 +1,6 @@
 steps:
   - label: ":construction_worker: Build"
-    command: |
-      mkdir -p .buildkite
-      echo "Build the rocket" | tee .buildkite/annotation.md
+    command: echo "Build the rocket"
     key: build
 
   - label: ":white_check_mark: Test"
@@ -12,8 +10,7 @@ steps:
 
   - label: ":rocket: Deploy"
     command: |
-      echo "Launch the rocket"
-      ls -al . ./.buildkite
+      echo "Launch the rocket" | tee .buildkite/annotation.md
       cat .buildkite/annotation.md | buildkite-agent annotate --style "success"
     key: deploy
     depends_on: test
