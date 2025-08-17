@@ -1,8 +1,11 @@
 steps:
   - label: ":construction_worker: Build"
-    command: echo "Build the rocket"
+    command: |
+      echo "Build the rocket"
+      buildkite-agent oidc request-token --audience sts.amazonaws.com
     key: build
     branches: main
+
 
   - label: ":white_check_mark: Test"
     command: echo "Test the rocket"
