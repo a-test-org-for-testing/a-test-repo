@@ -8,6 +8,7 @@ steps:
     command: echo "Test the rocket"
     key: test
     depends_on: build
+    branches: main
 
   - label: ":rocket: Deploy"
     command: |
@@ -15,5 +16,6 @@ steps:
       cat .buildkite/annotation.md | buildkite-agent annotate --style "success"
     key: deploy
     depends_on: test
+    branches: main
     agents:
       driver: 580
