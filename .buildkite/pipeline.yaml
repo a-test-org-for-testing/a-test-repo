@@ -3,6 +3,9 @@ steps:
     command: echo "Build the rocket"
     key: build
     branches: main
+    plugins:
+      - docker#v5.13.0:
+          image: "ubuntu:latest"
 
   - label: ":white_check_mark: Test"
     command: echo "Test the rocket"
