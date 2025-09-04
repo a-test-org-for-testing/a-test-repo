@@ -2,11 +2,12 @@ steps:
   - label: ":construction_worker: Build"
     command: |
       echo "Build the rocket"
-      buildkite-agent oidc request-token --audience sts.amazonaws.com
-      S=llamasecret
-      echo "$S" | buildkite-agent redactor add
+      buildkite-agent oidc request-token --audience sts.amazonaws.com > token
+      cat token
+      echo "linebr"
+      buildkite-agent redactor add token
       echo "something"
-      echo "$S"
+      cat token
       echo "else"
     key: build
     branches: main
