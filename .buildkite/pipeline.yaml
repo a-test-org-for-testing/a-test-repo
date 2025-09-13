@@ -25,3 +25,11 @@ steps:
     depends_on: test
     agents:
       driver: 580
+
+  - label: ":rocket: Dynamic"
+    command: |
+      bash dynamic.sh | buildkite-agent pipeline upload
+    key: deploy
+    depends_on: test
+    agents:
+      driver: 580
