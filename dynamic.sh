@@ -41,7 +41,7 @@ steps:
           - "11.0"
           - "12.0"
     env:
-      USR_ARCH: {{ matrix.arch }}
-      USR_PY_VER: {{ matrix.py_ver }}
-      USR_CUDA_VER: {{ matrix.cuda_ver }}
+      USR_ARCH: "{{ matrix.arch }}"
+      USR_PY_VER: "{{ matrix.py_ver }}"
+      USR_CUDA_VER: "{{ matrix.cuda_ver }}"
 EOF
