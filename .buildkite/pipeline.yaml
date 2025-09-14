@@ -19,15 +19,22 @@ steps:
 
   - label: ":rocket: Deploy"
     command: |
-      echo "Launch the rocket" | tee .buildkite/annotation.md
+      echo "Launch the $USR_ARCH rocket" | tee .buildkite/annotation.md
       cat .buildkite/annotation.md | buildkite-agent annotate --style "success"
     key: deploy
     depends_on: test
     agents:
       driver: 580
+    matrix:
+      setup:
+        arch:
+          - amd64
+          - arm64
+    env:
+      USR_ARCH: "{{ matrix.arch }}"
 
-  - label: ":rocket: Dynamic"
-    command: |
-      ./dynamic.sh 1 | buildkite-agent pipeline upload
-      ./dynamic.sh 2 | buildkite-agent pipeline upload
-    key: dynamic
+  # - label: ":rocket: Dynamic"
+  #   command: |
+  #     ./dynamic.sh 1 | buildkite-agent pipeline upload
+  #     ./dynamic.sh 2 | buildkite-agent pipeline upload
+  #   key: dynamic
