@@ -20,10 +20,10 @@ steps:
         cuda_ver:
           - "11.0"
           - "12.0"
-    env:
-      # USR_ARCH: {{ matrix.arch }}
-      USR_PY_VER: {{ matrix.py_ver }}
-      USR_CUDA_VER: {{ matrix.cuda_ver }}
+    # env:
+    #   # USR_ARCH: {{ matrix.arch }}
+    #   USR_PY_VER: {{ matrix.py_ver }}
+    #   USR_CUDA_VER: {{ matrix.cuda_ver }}
 
   - command: echo "testing \$USR_ARCH \$USR_PY_VER \$USR_CUDA_VER!"
     label: ":white_check_mark: Test \$SUFFIX"
