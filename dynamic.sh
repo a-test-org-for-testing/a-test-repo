@@ -8,7 +8,7 @@ SUFFIX="$1"
 cat <<EOF
 steps:
   - command: echo "building \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER!"
-    label: ":construction_worker: build \\\$SUFFIX"
+    label: ":construction_worker: build $SUFFIX"
     key: build-$SUFFIX
     matrix:
       setup:
@@ -26,7 +26,7 @@ steps:
       USR_CUDA_VER: "{{ matrix.cuda_ver }}"
 
   - command: echo "testing \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER!"
-    label: ":white_check_mark: Test \\\$SUFFIX"
+    label: ":white_check_mark: Test $SUFFIX"
     depends_on:
       - build-$SUFFIX
     matrix:

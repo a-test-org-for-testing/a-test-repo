@@ -35,6 +35,6 @@ steps:
 
   - label: ":rocket: Dynamic"
     command: |
-      ./dynamic.sh 1 | buildkite-agent pipeline upload
-      ./dynamic.sh 2 | buildkite-agent pipeline upload
+      ./dynamic.sh 1 | tee | buildkite-agent pipeline upload
+      ./dynamic.sh 2 | tee | buildkite-agent pipeline upload
     key: dynamic
