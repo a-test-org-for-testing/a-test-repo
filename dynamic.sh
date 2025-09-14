@@ -12,16 +12,16 @@ steps:
     key: build-\$SUFFIX
     matrix:
       setup:
-        arch:
-          - amd64
-          - arm64
+        # arch:
+        #   - amd64
+        #   - arm64
         py_ver:
           - "3.10"
         cuda_ver:
           - "11.0"
           - "12.0"
     env:
-      USR_ARCH: {{ matrix.arch }}
+      # USR_ARCH: {{ matrix.arch }}
       USR_PY_VER: {{ matrix.py_ver }}
       USR_CUDA_VER: {{ matrix.cuda_ver }}
 
