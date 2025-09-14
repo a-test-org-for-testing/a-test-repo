@@ -9,7 +9,7 @@ cat <<EOF
 steps:
   - command: echo "building \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER!"
     label: ":construction_worker: build $SUFFIX \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER"
-    key: build-$SUFFIX-\\\$USR_ARCH-\\\$USR_PY_VER-\\\$USR_CUDA_VER
+    key: "build-$SUFFIX-\\\$USR_ARCH-\\\$USR_PY_VER-\\\$USR_CUDA_VER"
     matrix:
       setup:
         arch:
@@ -28,7 +28,7 @@ steps:
   - command: echo "testing \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER!"
     label: ":white_check_mark: Test $SUFFIX \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER"
     depends_on:
-      - build-$SUFFIX-\\\$USR_ARCH-\\\$DEFAULT_PY_VER-\\\$USR_CUDA_VER
+      - "build-$SUFFIX-\\\$USR_ARCH-\\\$DEFAULT_PY_VER-\\\$USR_CUDA_VER"
     matrix:
       setup:
         arch:
