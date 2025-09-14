@@ -16,10 +16,10 @@ steps:
           - amd64
           - arm64
         py_ver:
-          - "3.10"
+          - "310"
         cuda_ver:
-          - "11.0"
-          - "12.0"
+          - "110"
+          - "120"
     env:
       USR_ARCH: "{{ matrix.arch }}"
       USR_PY_VER: "{{ matrix.py_ver }}"
@@ -35,11 +35,11 @@ steps:
           - amd64
           - arm64
         py_ver:
-          - "3.10"
-          - "3.11"
+          - "310"
+          - "311"
         cuda_ver:
-          - "11.0"
-          - "12.0"
+          - "110"
+          - "120"
     env:
       USR_ARCH: "{{ matrix.arch }}"
       USR_PY_VER: "{{ matrix.py_ver }}"
