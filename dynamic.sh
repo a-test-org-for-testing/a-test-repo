@@ -9,8 +9,8 @@ cat <<EOF
 steps:
   - command: echo "building \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER!"
     label: ":construction_worker: build $SUFFIX \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER"
-    key: build-$SUFFIX
-    matrix:-\\\$USR_ARCH-\\\$USR_PY_VER-\\\$USR_CUDA_VER
+    key: build-$SUFFIX-\\\$USR_ARCH-\\\$USR_PY_VER-\\\$USR_CUDA_VER
+    matrix:
       setup:
         arch:
           - amd64
