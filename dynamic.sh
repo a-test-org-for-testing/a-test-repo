@@ -28,7 +28,7 @@ steps:
   - command: echo "testing \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER!"
     label: ":white_check_mark: Test $SUFFIX {{ matrix.arch }} {{ matrix.py_ver}} {{ matrix.cuda_ver }}"
     depends_on:
-      - "build-$SUFFIX-{{ matrix.arch }}-3.10-{{ matrix.cuda_ver }}"
+      - "build-$SUFFIX-{{ matrix.arch }}-310-{{ matrix.cuda_ver }}"
     matrix:
       setup:
         arch:
