@@ -2,7 +2,7 @@ steps:
   - label: ":rocket: Example Matrix"
     command: |
       echo "Launch the \$USR_ARCH rocket" | tee .buildkite/annotation.md
-      cat .buildkite/annotation.md | buildkite-agent annotate --style "success"
+      cat .buildkite/annotation.md | buildkite-agent annotate --append --style "success"
     key: matrix
     agents:
       driver: 580
@@ -16,12 +16,10 @@ steps:
 
   - label: ":rocket: Build"
     command: |
-      ./generate-build.sh 1 | tee /dev/stderr | buildkite-agent pipeline upload
-      ./generate-build.sh 2 | tee /dev/stderr | buildkite-agent pipeline upload
+      ./generate-builds.sh 1 | tee /dev/stderr | buildkite-agent pipeline upload
     key: build
 
   - label: ":white_check_mark: Test"
     command: |
-      sleep 2s
-      echo "Done!"
+      ./generate-tests.sh 1 | tee /dev/stderr | buildkite-agent pipeline upload
     depends_on: build
