@@ -16,12 +16,14 @@ steps:
 
   - label: ":rocket: Build"
     group: build
-    command: |
-      ./generate-builds.sh 1 | tee /dev/stderr | buildkite-agent pipeline upload
+    steps:
+      - command: |
+          ./generate-builds.sh 1 | tee /dev/stderr | buildkite-agent pipeline upload
     key: build
 
   - label: ":white_check_mark: Test"
     group: test
-    command: |
-      ./generate-tests.sh 1 | tee /dev/stderr | buildkite-agent pipeline upload
+    steps:
+      - command: |
+          ./generate-tests.sh 1 | tee /dev/stderr | buildkite-agent pipeline upload
     depends_on: build
