@@ -10,7 +10,6 @@ steps:
   - group: build
     steps:
       - command: echo "building \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER!"
-        group: build
         label: ":construction_worker: build $SUFFIX {{ matrix.arch }} {{ matrix.py_ver}} {{ matrix.cuda_ver }}"
         key: "build-$SUFFIX"
         matrix:

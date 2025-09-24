@@ -10,7 +10,6 @@ steps:
   - group: test
     steps:
       - command: echo "testing \\\$USR_ARCH \\\$USR_PY_VER \\\$USR_CUDA_VER!"
-        group: tests
         label: ":white_check_mark: test $SUFFIX {{ matrix.arch }} {{ matrix.py_ver}} {{ matrix.cuda_ver }}"
         depends_on:
           - "build-$SUFFIX"
